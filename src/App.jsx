@@ -14,10 +14,20 @@ import Address from './pages/Address';
 import Payment from './pages/Payment';
 import Profile from './pages/Profile';
 import Order from './pages/Order';
+import { Navigate } from 'react-router-dom';
 
 
 function App() {
- 
+  const ProtectRoute=({children})=>{
+    const token =localStorage.getItem("token")
+    if(!token){
+      return <Navigate to="/" />
+    } 
+    else{
+      return children;
+    }
+
+  }
 
   return (
     <>
@@ -25,13 +35,16 @@ function App() {
     <Routes>
       <Route path='/' element={<Register/>} />
       <Route path='/login' element={<Login/>} />
-      <Route path='/home' element={<Home/>} />
-      <Route path='/restaurant' element={<Restaurant/>} />
-      <Route path='/checkout' element={<Checkout/>} />
-      <Route path='/address' element={<Address/>} />
-      <Route path='/payment' element={<Payment/>} />
-      <Route path='/order' element={<Order/>} />
-      <Route path='/profile' element={<Profile/>} />
+      <Route path='/home' element={
+        <ProtectRoute>
+        <Home/></ProtectRoute>} />
+      <Route path='/restaurant' element={
+        <ProtectRoute><Restaurant/> </ProtectRoute>} />
+      <Route path='/checkout' element={<ProtectRoute><Checkout/> </ProtectRoute>} />
+      <Route path='/address' element={<ProtectRoute><Address/> </ProtectRoute>} />
+      <Route path='/payment' element={<ProtectRoute><Payment/> </ProtectRoute>} />
+      <Route path='/order' element={<ProtectRoute><Order/> </ProtectRoute>} />
+      <Route path='/profile' element={<ProtectRoute><Profile/> </ProtectRoute>} />
       <Route path='*' element={<PageNotFound/>} />
     </Routes>
     
