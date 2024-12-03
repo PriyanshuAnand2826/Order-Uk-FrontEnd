@@ -26,8 +26,8 @@ export default function BannerHome() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-       <span style={{fontSize:'8px'}}>Order Restaurant food, takeaway and groceries.</span>
-       <p style={{fontSize:'20px',marginTop:'2%'}}>Feast Your Senses,</p>
+       <span style={{fontSize:'8px'}} className={styles.span_text}>Order Restaurant food, takeaway and groceries.</span>
+       <p style={{fontSize:'20px',marginTop:'2%'}} className={styles.text}>Feast Your Senses,</p>
        <p style={{color:'#FC8A06',fontSize:'20px'}}>Fast and Fresh</p>
 
        <span style={{fontSize:'8px'}}>Enter a postcode to see what we deliver</span>

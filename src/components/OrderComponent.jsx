@@ -17,8 +17,8 @@ export default function OrderComponent() {
 
        <div className={styles.right}>
         <div style={{marginLeft:'-7%'}}>
-        <img src={logo} alt="Logo" />
-        <span style={{fontWeight:'bold',fontSize:'70px'}}>ing is more</span>
+        <img src={logo} alt="Logo" className={styles.logo} />
+        <span style={{fontWeight:'bold'}} className={styles.span_text}>ing is more</span>
         </div>
 
 

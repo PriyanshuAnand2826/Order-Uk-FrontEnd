@@ -36,6 +36,19 @@ export default function Restaurant() {
   const [friesData,setFriesData] =useState([])
   const [colddrinksData,setColdDrinksData] =useState([])
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const handleCartClick = async (foodName,price,unitPrice)=>{
     
     console.log(foodName,price,unitPrice)
@@ -178,7 +191,8 @@ export default function Restaurant() {
       <div className={styles.mini_container}>
 
         <div className={styles.mini_left} style={{width:isCartClicked ? '70%':'100%'}}>
-        <div className={styles.food_card_div} style={{gridTemplateColumns : isCartClicked ? 'repeat(2,1fr)':'repeat(3,1fr)'}}>
+        <div className={styles.food_card_div} style={{gridTemplateColumns : isCartClicked ? 
+        'repeat(2,1fr)':(isMobile ? 'repeat(1,1fr)':'repeat(3,1fr)')}}>
         <ImgCard
           text={"Chef Burgers London"}
           orangetext={"Restaurant"}
@@ -203,15 +217,15 @@ export default function Restaurant() {
         
       </div>
       <div className={styles.categories_data} style={{marginTop:isCartClicked && '2%'}}>
-         <Category menuName={"Burgers"} menuData={burgerData} isCartClicked={isCartClicked}  handleCartClick={handleCartClick} />
+         <Category menuName={"Burgers"} menuData={burgerData} isCartClicked={isCartClicked}  handleCartClick={handleCartClick} isMobile={isMobile} />
 
       </div>
       <div className={styles.fries_data} style={{marginTop:isCartClicked && '2%'}}>
-      <Category menuName={"Fries"} menuData={friesData} isOrange={true} isCartClicked={isCartClicked}  handleCartClick={handleCartClick} />
+      <Category menuName={"Fries"} menuData={friesData} isOrange={true} isCartClicked={isCartClicked}  handleCartClick={handleCartClick} isMobile={isMobile}  />
 
       </div>
       <div className={styles.fries_data} style={{marginTop:isCartClicked && '2%'}}>
-      <Category menuName={"Cold Drinks"} menuData={colddrinksData} isOrange={true} isCartClicked={isCartClicked} handleCartClick={handleCartClick} />
+      <Category menuName={"Cold Drinks"} menuData={colddrinksData} isOrange={true} isCartClicked={isCartClicked} handleCartClick={handleCartClick}  isMobile={isMobile}  />
 
       </div>
 

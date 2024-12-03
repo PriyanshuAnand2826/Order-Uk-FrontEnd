@@ -1,4 +1,4 @@
-import React ,{useState}from 'react'
+import React ,{useState,useEffect}from 'react'
 import styles from './Testimonials.module.css'
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
@@ -50,15 +50,24 @@ function Testimonial_Card ({item}){
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(3);
+
+  // Detect screen size and adjust cards to show
+  useEffect(() => {
+    const handleResize = () => {
+      setCardsToShow(window.innerWidth <= 768 ? 1 : 3);
+    };
+    handleResize(); // Initialize on component mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleNext = () => {
-    console.log("Next Clicked")
     setCurrentIndex((prevIndex) =>
       prevIndex + 1 >= testimonial.length - (cardsToShow - 1) ? 0 : prevIndex + 1
     );
   };
 
   const handlePrev = () => {
-    console.log("Prev clicked")
     setCurrentIndex((prevIndex) =>
       prevIndex - 1 < 0 ? testimonial.length - cardsToShow : prevIndex - 1
     );

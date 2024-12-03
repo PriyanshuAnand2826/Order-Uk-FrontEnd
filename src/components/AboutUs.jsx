@@ -32,12 +32,14 @@ export default function AboutUs() {
   ];
   return (
     <div className={styles.container}>
+      <div className={styles.sub_navbar}>
       <SubNavbar
         lefttext={"Know more about us!"}
         lisstitems={listtoshow}
         marginLeft={"-10%"}
         leftWidth={"35%"}
       />
+     </div>
       <div className={styles.inner_div_aboutus}>
         <ListItem data={listitemabout_us} />
         <div className={styles.about_us_right}>

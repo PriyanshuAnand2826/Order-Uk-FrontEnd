@@ -23,12 +23,12 @@ function CategoryCard ({item,handleCartClick}) {
     </div>
   )
 }
-export default function Category({menuName,menuData,isOrange,isCartClicked,handleCartClick}) {
+export default function Category({menuName,menuData,isOrange,isCartClicked,handleCartClick,isMobile}) {
   return (
     <div className={styles.container}>
       <h2 style={{color:isOrange && '#FC8A06'}}>{menuName}</h2>
 
-      <div className={styles.card_div}  style={{gridTemplateColumns :isCartClicked ? 'repeat(2,1fr)':'repeat(3,1fr)'}}>
+      <div className={styles.card_div}  style={{gridTemplateColumns :isCartClicked ? 'repeat(2,1fr)':isMobile ?'repeat(1,1fr)':'repeat(3,1fr)'}}>
           {menuData.map((item,index)=>{
             return(
               <CategoryCard key={index}  item={item} handleCartClick={handleCartClick}/>

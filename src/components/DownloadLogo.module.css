@@ -5,3 +5,12 @@
   border-radius: 7px;
   gap: 3%;
 }
+
+@media (max-width: 768px){
+  .container{
+    height: 50px;
+    width: 200px;
+    align-items: center;
+  }
+
+}

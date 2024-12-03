@@ -84,3 +84,25 @@
   height: 25%;
   z-index: 1000;
 }
+
+@media (max-width: 768px){
+  .mid{
+    display: none;
+  }
+  .right{
+    display: none;
+  }
+  .left{
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20%;
+  }
+  .span_text{
+    margin-left: 20%;
+  }
+  .text{
+    margin-left: 20%;
+  }
+}

@@ -9,3 +9,9 @@
   cursor: pointer;
  
 }
+
+@media (max-width: 768px){
+  .container{
+    font-size: 5px;
+  }
+}

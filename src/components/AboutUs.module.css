@@ -28,3 +28,20 @@
   margin-top: 2%;
   font-size: 10px;
 }
+
+
+@media (max-width: 768px) {
+  .sub_navbar{
+    display: none;
+  }
+
+  .inner_div_aboutus{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top{
+    grid-template-columns: repeat(1,1fr);
+  }
+
+}

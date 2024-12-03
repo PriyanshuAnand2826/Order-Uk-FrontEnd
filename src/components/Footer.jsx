@@ -44,7 +44,7 @@ export default function Footer() {
           <DownloadLogo  down_logo={<BiLogoPlayStore color='white' size={40}/>} texttoshow={"Google Play"} uppertext={"GET IT ON"}/>
 
         </div>
-        <span style={{fontSize:'10px'}}>Company # 490039-445, Registered with House of companies. </span>
+        <span style={{fontSize:'10px'}} className={styles.span_text}>Company # 490039-445, Registered with House of companies. </span>
   
         </div>
 

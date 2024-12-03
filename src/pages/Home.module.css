@@ -1,6 +1,5 @@
 .container{
   width: 100vw;
-  
 }
 .header{
   width: 100%;
@@ -74,4 +73,33 @@
   width: 100%;
   margin-top: 2%;
   
+}
+
+
+@media (max-width: 768px){
+  .header{
+    display: none;
+  }
+  .navbar{
+    display: none;
+  }
+  .sub_navbar{
+    display: none;
+  }
+  .food_card_div{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 10%;
+  }
+  .food_categories{
+    margin-top: 10%;
+  }
+  .download_container{
+    margin-top: 10%;
+  }
+  .partenr_div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }

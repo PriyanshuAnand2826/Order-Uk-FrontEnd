@@ -30,3 +30,22 @@
 .footer{
   height: 35%;
 }
+
+
+
+@media (max-width: 768px) {
+  .right{
+    display: none;
+  }
+  .left{
+    margin: 0 auto;
+  }
+  .top{
+    height: 70%;
+  }
+  .footer{
+    height: 95%;
+    
+  }
+
+}
